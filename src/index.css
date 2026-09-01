@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-pitch: #10B981;
+  --color-pitch-dark: #059669;
+  --color-gold: #F5B945;
+  --color-night: #0B0F17;
+  --color-night-2: #131826;
+  --color-night-3: #1C2333;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #0B0F17;
+  color: #E5E7EB;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card {
+    @apply bg-[#131826] border border-white/5 rounded-2xl;
+  }
+  .btn-primary {
+    @apply bg-[#10B981] hover:bg-[#059669] text-black font-semibold rounded-xl px-4 py-2.5 transition-colors;
+  }
+  .btn-ghost {
+    @apply bg-white/5 hover:bg-white/10 text-gray-200 rounded-xl px-4 py-2.5 transition-colors;
+  }
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-xl px-4 py-2.5 transition-colors;
+  }
+  .input {
+    @apply bg-[#0B0F17] border border-white/10 rounded-xl px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:border-[#10B981] focus:outline-none transition-colors w-full;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-400 mb-1.5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border;
+  }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3344; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4456; }
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-dot {
+  animation: pulse-live 1.4s ease-in-out infinite;
+}
+
+@keyframes blink-red {
+  0%, 100% { opacity: 1; background-color: rgb(239 68 68 / 0.2); }
+  50% { opacity: 0.5; background-color: rgb(239 68 68 / 0.1); }
+}
+.live-badge {
+  animation: blink-red 1.2s ease-in-out infinite;
+}
+
+@keyframes blink-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.live-minute {
+  animation: blink-green 1.5s ease-in-out infinite;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
